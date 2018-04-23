@@ -1,0 +1,8 @@
+#header {
+  background: darkgrey;
+  color: white;
+}
+
+input[type=file] {
+    display: inline;
+}

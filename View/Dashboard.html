@@ -1,0 +1,179 @@
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" type = "text/css"/>
+    <link href="bootstrap-3.3.7-dist/css/customCSS.css" rel="stylesheet" type = "text/css"/>    
+    <style type='text/css'>
+    body {
+      background-color: #FFFFFF;
+    }
+
+    #text {
+      width: 660px;
+      height: 300px;
+      border: 1px solid;
+      font-size: 20px;
+      overflow: scroll;
+      text-align: center;
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th,
+    div {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    select {
+      width: 150px;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div id="header">
+      <h1>Environmental Complaints Dashboard</h1>
+    </div>
+
+    <div>
+      <p>Please Select the CSV Data Source</p>
+      <input type="file" class="btn btn-default btn-lg" name="File Upload" id="txtFileUpload" accept=".csv" />
+    </div>
+
+    <div>
+      <button class="btn btn-default btn-lg btn-info" id="btnClearContent" type="button">Clear Content</button>
+    </div>
+
+    <div class="container" style="overflow: scroll; border:1px solid black; width:95%; height:500px; margin:0 auto;">
+        <table id="dataset" class="display table table-bordered"></table>
+    </div>
+
+    <div id="selection" class="row" hidden="hidden">
+      <p>Please Select the Data Labels(Columns)</p>
+    </div>
+
+    <div id="applySelection" class="row" hidden="hidden">
+        <button class="btn btn-default btn-lg btn-primary" id="btnApplySelection" type="button">Submit</button>
+    </div>
+
+    <div class="container" id="filterElements">
+        <div id="selectFilter"></div>
+        <div id="append" align="center"></div>
+        <div id="Comparator" align="center"></div>
+        <div id="stat"></div>
+        <br />
+    </div>
+
+    <br><br>
+
+    <div id="checkboxes" class="container" align="center"></div>
+
+    <div class="container hidden" id="ChartCriteria">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <span class="label label-default">Choose X-Axis</span>
+                <div class="form-group">
+                    <label for="xAxisSelect">X-Axis</label>
+                    <select class="form-control" id="xAxisSelect"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <span class="label label-default">Choose Y-Axis</span>
+                <div class="form-group">
+                    <label for="yAxisSelect">Y-Axis</label>
+                    <select class="form-control" id="yAxisSelect"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <span class="label label-default">Choose columns for stacking</span>
+                <div class="form-group">
+                    <label for="zAxisSelect">Stack Columns</label>
+                    <select class="form-control" id="zAxisSelect"></select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-default btn-lg btn-primary" id="btnDrawChart" type="button">DrawChart(s)</button>
+            </div>
+        </div>
+    </div>
+    <div id="charts">      
+      <table class="columns", bgcolor="#dddddd">
+        <tr>
+          <td>
+            <div id="pieDiv">
+              <h3 id="pieHeading"></h3>
+              <canvas id="pieArea" height="75"></canvas>
+            </div>
+          </td>
+        </tr>
+
+        <br><br>
+        <tr>
+          <td>
+            <div id="doughnutDiv">
+              <h3 id="doughnutHeading"></h3>
+              <canvas id="doughnutArea" height="75"></canvas>
+            </div>
+          </td>
+        </tr>
+
+        <br><br>
+
+        <tr>
+          <td>
+            <div id="barDiv">
+              <h3 id="barHeading"></h3>
+              <canvas id="barArea" height="75"></canvas>
+            </div>
+          </td>
+        </tr>
+
+        <br><br>
+
+        <tr>
+          <td>
+            <div id="lineDiv">
+              <h3 id="lineHeading"></h3>
+              <canvas id="lineArea" height="75"></canvas>
+          </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div id="stackDiv">
+              <h3 id="stackHeading"></h3>
+              <canvas id="stackArea" height="75"></canvas>
+          </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+      <!--Scripts-->
+      <script src="../Libraries/jQuery.min.js"></script>
+      <script src="../Libraries/jquery.datatables.min.js"></script>
+      <script src="../View/css/bootstrap/js/bootstrap.min.js"></script>
+      <script src="../Model/datasets/Complaints.js"></script>
+      <script src="../Libraries/dataframe.js"></script>
+      <script src="../Controller/DemographicsDataframe.js"></script>
+      <script src="../Controller/Dataset.js"></script>
+      <script src="../Controller/Dashboard.js"></script>
+      <script src="../Libraries/Chart.js"></script>
+      <script src="../Libraries/Chart.bundle.js"></script>
+    </body>
+    </html>
