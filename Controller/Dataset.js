@@ -70,15 +70,11 @@ class Dataset {
     {
         try 
         {
-            //$("#selectFilterlbl").remove();
-            //$("#btnApplyFilters").remove();
             var columnList = this.getSelectedColumns();
             this.displayDataTable(DemographicsDataframe.dataFrameObject(), columnList);
-            //var filterObj = new filterController(df, columnList, this);
-            //filterObj.displayUniqueRowValueFilters();
         }
         catch (error) {
-            console.log(error.message)
+            // do -nothing
         }
     }
 
@@ -104,7 +100,6 @@ class Dataset {
         var label = document.createElement("label");
         var description = document.createTextNode(f[k]);
         var checkbox = document.createElement("input");
-        //checkbox.class = "col-md-3 checkbox selectionColumn";
         checkbox.type = "checkbox";
         checkbox.id = "selectedcol";
         checkbox.name = "lblColSelect";
