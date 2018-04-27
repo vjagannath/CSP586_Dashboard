@@ -84,85 +84,32 @@
 
     <div class="container hidden" id="ChartCriteria">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2">
-                <span class="label label-default">Choose X-Axis</span>
-                <div class="form-group">
-                    <label for="xAxisSelect">X-Axis</label>
-                    <select class="form-control" id="xAxisSelect"></select>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <span class="label label-default">Choose Y-Axis</span>
-                <div class="form-group">
-                    <label for="yAxisSelect">Y-Axis</label>
-                    <select class="form-control" id="yAxisSelect"></select>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <span class="label label-default">Choose columns for stacking</span>
-                <div class="form-group">
-                    <label for="zAxisSelect">Stack Columns</label>
-                    <select class="form-control" id="zAxisSelect"></select>
-                </div>
+            <div class="col-md-4">
+                <p>Select Table</p>
+                <select id="chartType">
+                    <option value=" "> </option>
+                    <option value="Bar">Bar</option>
+                    <option value="Pie">Pie</option>
+                    <option value="PolarArea">Polar Area</option>
+                </select>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-default btn-lg btn-primary" id="btnDrawChart" type="button">DrawChart(s)</button>
+                <p>Select Features</p>
+                <select id = "featuresList">
+                    <option value=" "> </option>
+                </select>
             </div>
+            <div class="col-md-4 align-middle">
+                <button id="displayChart" type="button" class="btn btn-primary align-middle">Display Chart</button>
+            </div>
+
         </div>
     </div>
-    <div id="charts">      
-      <table class="columns", bgcolor="#dddddd">
-        <tr>
-          <td>
-            <div id="pieDiv">
-              <h3 id="pieHeading"></h3>
-              <canvas id="pieArea" height="75"></canvas>
-            </div>
-          </td>
-        </tr>
-
-        <br><br>
-        <tr>
-          <td>
-            <div id="doughnutDiv">
-              <h3 id="doughnutHeading"></h3>
-              <canvas id="doughnutArea" height="75"></canvas>
-            </div>
-          </td>
-        </tr>
-
-        <br><br>
-
-        <tr>
-          <td>
-            <div id="barDiv">
-              <h3 id="barHeading"></h3>
-              <canvas id="barArea" height="75"></canvas>
-            </div>
-          </td>
-        </tr>
-
-        <br><br>
-
-        <tr>
-          <td>
-            <div id="lineDiv">
-              <h3 id="lineHeading"></h3>
-              <canvas id="lineArea" height="75"></canvas>
-          </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div id="stackDiv">
-              <h3 id="stackHeading"></h3>
-              <canvas id="stackArea" height="75"></canvas>
-          </div>
-          </td>
-        </tr>
-      </table>
+    <div id="charts">
+        <div id="chartDiv">
+        <h3 id="chartHeading"></h3>
+            <canvas id="chartArea" height="120"></canvas>
+        </div>
     </div>
 
       <!--Scripts-->
@@ -172,10 +119,11 @@
       <script src="../Controller/excel-bootstrap-table-filter-bundle.js"></script>
       <script src="../Model/datasets/Complaints.js"></script>
       <script src="../Libraries/dataframe.js"></script>
-      <script src="../Controller/DemographicsDataframe.js"></script>
+      <script src="../Controller/EnvironmentalDataframe.js"></script>
       <script src="../Controller/Dataset.js"></script>
-      <script src="../Controller/Dashboard.js"></script>
       <script src="../Libraries/Chart.js"></script>
+      <script src="../Controller/ChartController.js"></script>
+      <script src="../Controller/Dashboard.js"></script>
       <script src="../Libraries/Chart.bundle.js"></script>
       
     </body>

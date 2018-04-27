@@ -4,11 +4,11 @@ var environmentalDashboard = environmentalDashboard || {};
 
 environmentalDashboard.utils = function () {	
 	var dataset = new Dataset();
+	let chartController = new ChartController();
 	var bindInitEvents = function () {
-
 		//Bind a function to handle file upload event;
 		$("#txtFileUpload").change(function () {			
-			dataset.handleFileUploadEvent();
+			dataset.handleFileUploadEvent(chartController);
 		});
 		
 		//Bind a function to handle clear content event;
@@ -20,6 +20,11 @@ environmentalDashboard.utils = function () {
 		$("#btnApplySelection").click(function () {
 		    dataset.handleApplySelectionEvent();
 		});
+
+        //Bind a function to handle apply selection event;
+        $("#displayChart").click(function () {
+            chartController.displayChart();
+        });
 	}();	
 }
 
