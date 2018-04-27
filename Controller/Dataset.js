@@ -2,13 +2,17 @@
 
 class Dataset {
 
-    constructor() {
+    constructor(cc) {
         this._dfObj = null;
         this._fileIn = null;
         this._fileProperties = null;
+        this.chartController = null
     }
 
-    handleFileUploadEvent() {
+    handleFileUploadEvent(cc) {
+        // Set the chartController
+        this.chartController = cc;
+
         //disable file upload again until clear button is clicked
         document.getElementById("txtFileUpload").disabled = true;
 
@@ -63,7 +67,9 @@ class Dataset {
                 "info": false,
                 "ordering": false            
             }
-        );
+        )
+        this.chartController.displayColumns(df)
+        ;
     }
 
     handleApplySelectionEvent() 
