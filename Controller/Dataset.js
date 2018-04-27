@@ -53,7 +53,7 @@ class Dataset {
 
         // display table data
         var columnNames = this.toObject(df.listColumns());
-        $('#dataset').DataTable
+        var displayedTable = $('#dataset').DataTable
         (
             {
                 data: df.toArray(),
@@ -61,9 +61,15 @@ class Dataset {
                 "pageLength": 10,
                 "searching": false,
                 "info": false,
-                "ordering": false            
+                "ordering": false,          
             }
         );
+
+        var filter = new DropDownFilter($('#dataset'), {});
+
+        displayedTable.on( 'draw', function () {
+            filter.refresh($('#dataset'));
+        } );
     }
 
     handleApplySelectionEvent() 
