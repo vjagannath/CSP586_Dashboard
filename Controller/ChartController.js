@@ -59,7 +59,7 @@ class ChartController {
             let r = Math.floor(Math.random() * 255);
             let g = Math.floor(Math.random() * 255);
             let b = Math.floor(Math.random() * 255);
-            return "rgb(" + r + "," + g + "," + b + ")";
+            return "rgba(" + r + "," + g + "," + b + ", 0.4" + ")";
         };
 
         let xs = [];
@@ -71,8 +71,8 @@ class ChartController {
             colors.push(dynamicColors());
         }
 
-        if(type=='Line'){
-            this.Line(xs, ys, ctx, colors);
+        if(type=='PolarArea'){
+            this.PolarArea(xs, ys, ctx, colors);
         }
         else if (type=='Bar'){
             this.Bar(xs, ys, ctx, colors);
@@ -82,9 +82,9 @@ class ChartController {
         }
     }
 
-    Line(xs, ys, ctx, colors){
+    PolarArea(xs, ys, ctx, colors){
         this.chart = new Chart(ctx, {
-            type: 'line',
+            type: 'polarArea',
             data:{
                 labels: xs,
                 datasets: [{
