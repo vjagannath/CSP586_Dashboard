@@ -1,8 +1,8 @@
 'use strict'
 
-var demoGraphicsDashboard = demoGraphicsDashboard || {};
+var environmentalDashboard = environmentalDashboard || {};
 
-demoGraphicsDashboard.utils = function () {	
+environmentalDashboard.utils = function () {	
 	var dataset = new Dataset();
 	var bindInitEvents = function () {
 
@@ -23,4 +23,4 @@ demoGraphicsDashboard.utils = function () {
 	}();	
 }
 
-var utilities = new demoGraphicsDashboard.utils();
+var utilities = new environmentalDashboard.utils();

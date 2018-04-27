@@ -1,7 +1,7 @@
 'use strict'
 
 // Create a class to act as a wrapper to DataFrame library
-class DemographicsDataframe {
+class EnvironmentalDataframe {
 
     constructor(fileIn, client) {
         this._file = fileIn;
@@ -25,13 +25,13 @@ class DemographicsDataframe {
     }
 
     static dataFrameObject() {
-        return DemographicsDataframe._df;
+        return EnvironmentalDataframe._df;
     }
 
     /* Setters */
     setDataFrameObject(dfIn) {
-        DemographicsDataframe._df = dfIn;
-        this._dfColumns = DemographicsDataframe._df.listColumns();
+        EnvironmentalDataframe._df = dfIn;
+        this._dfColumns = EnvironmentalDataframe._df.listColumns();
         this.notifyClients();
     }
 

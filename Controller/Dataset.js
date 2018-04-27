@@ -16,12 +16,12 @@ class Dataset {
         this._fileIn = document.getElementById("txtFileUpload").files[0];
 
         // create and set the data frame instance
-        this._dfObj = new DemographicsDataframe(this._fileIn, this);
+        this._dfObj = new EnvironmentalDataframe(this._fileIn, this);
     }
 
     handleDataFrameChangedEvent() {
-        //get df object from Demographic data frame class instance
-        var df = DemographicsDataframe.dataFrameObject();
+        //get df object from environmental data frame class instance
+        var df = EnvironmentalDataframe.dataFrameObject();
 
         // create an instance of the data set considered
         var complaintsDataSetObj = new Complaints(this._fileIn, df);
@@ -77,7 +77,7 @@ class Dataset {
         try 
         {
             var columnList = this.getSelectedColumns();
-            this.displayDataTable(DemographicsDataframe.dataFrameObject(), columnList);
+            this.displayDataTable(EnvironmentalDataframe.dataFrameObject(), columnList);
         }
         catch (error) {
             // do -nothing
