@@ -34,9 +34,26 @@ class Dataset {
         this._fileProperties = complaintsDataSetObj.getFileProperties();
 
         // display the table data
-        this.displayDataTable(df);
+        this.displayDataTable(df);        
+    }
+
+    displayStatistics(dataFrameInput){
+        var statistics = document.getElementById("statistics");
+        statistics.innerHTML = "";
+        statistics.appendChild(document.createTextNode("Statistics"));
+        statistics.appendChild(document.createElement("br"));
+        statistics.appendChild(document.createTextNode("Total Number Of Complaints : " + dataFrameInput.count()));
+        statistics.appendChild(document.createElement("br"));
+        statistics.appendChild(document.createTextNode("Types of Complaints : " + dataFrameInput.unique('COMPLAINT TYPE').count()));
+        $("#statistics").show();
     }
     
+    clearStatistics(){
+        var statistics = document.getElementById("statistics");
+        statistics.innerHTML = "";
+        $("#statistics").show();
+    }
+
     displayDataTable(dataFrameInput, filteredColumnList) {
         // clear existing table content from display
         this.clearDataTableContent();
@@ -69,9 +86,14 @@ class Dataset {
             }
 
         )
+
+        // display statistics
+        this.displayStatistics(df);
+
+        // handle charts
         this.chartController.displayColumns(df);
 
-
+        // handle row filtering
         var filter = new DropDownFilter($('#dataset'), {});
 
         displayedTable.on( 'draw', function () {
@@ -134,6 +156,7 @@ class Dataset {
     {
         this.clearDataTableContent();
         this.clearSelectionContent();
+        this.clearStatistics();
         
         // Enable browse button to select the file
         document.getElementById("txtFileUpload").disabled = false;
