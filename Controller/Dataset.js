@@ -6,7 +6,9 @@ class Dataset {
         this._dfObj = null;
         this._fileIn = null;
         this._fileProperties = null;
-        this.chartController = null
+        this.chartController = null;
+        this.reloadValue = 0;
+        this.rowFilter = null;
     }
 
     handleFileUploadEvent(cc) {
@@ -94,10 +96,21 @@ class Dataset {
         this.chartController.displayColumns(df);
 
         // handle row filtering
-        var filter = new DropDownFilter($('#dataset'), {});
+        if (this.reloadValue > 0)
+        {
+            this.rowFilter.refresh($('#dataset'));
+        }
+        else
+        {
+            this.rowFilter = new DropDownFilter($('#dataset'), {});
+        }
+
+        this.reloadValue++;
+
+        var target = this.rowFilter;
 
         displayedTable.on( 'draw', function () {
-            filter.refresh($('#dataset'));
+            target.refresh($('#dataset'));
         } );
     }
 
