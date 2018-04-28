@@ -89,6 +89,9 @@ class Dataset {
 
         )
 
+        document.getElementById('exporttocsv').style.visibility = 'visible';
+        $("#exporttocsv").show();
+
         // display statistics
         this.displayStatistics(df);
 
@@ -199,6 +202,9 @@ class Dataset {
             $('#dataset').empty();
             $("#txtFileUpload").empty();
             $("txtFileUpload").value = "";
+            
+            document.getElementById('exporttocsv').style.visibility = 'hidden';
+            $("#exporttocsv").show();
         }
     }
 

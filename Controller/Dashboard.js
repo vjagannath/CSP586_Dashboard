@@ -5,6 +5,7 @@ var environmentalDashboard = environmentalDashboard || {};
 environmentalDashboard.utils = function () {	
 	var dataset = new Dataset();
 	let chartController = new ChartController();
+	var exportView = new ExportView("ExportedData.csv");
 	var bindInitEvents = function () {
 		//Bind a function to handle file upload event;
 		$("#txtFileUpload").change(function () {			
@@ -24,6 +25,11 @@ environmentalDashboard.utils = function () {
         //Bind a function to handle apply selection event;
         $("#displayChart").click(function () {
             chartController.displayChart();
+        });
+
+        //Bind a function to handle export data event;
+        $("#btnExportContent").click(function () {
+            exportView.exportTableToCSV();
         });
 	}();	
 }
