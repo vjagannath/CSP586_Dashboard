@@ -352,4 +352,4 @@ class DropDownFilter {
         this.filterCollection.initialize();
     }
 }
-//# sourceMappingURL=excel-bootstrap-table-filter-bundle.js.map
+//# sourceMappingURL=DropdownTableRowFilter.js.map
